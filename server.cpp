@@ -21,7 +21,7 @@
 //TO DO- enforce number of threads <= hardware concurrency for user input
 int main() {
 
-    char serverIP[INET_ADDRSTRLEN];
+    //char serverIP[INET_ADDRSTRLEN];
 
     //for notifying new connection
     char remoteIP[INET6_ADDRSTRLEN];
@@ -92,6 +92,8 @@ int main() {
             inet_ntop(clientaddr.ss_family,
 								&(((struct sockaddr_in*) &clientaddr)->sin_addr),
 								remoteIP, INET_ADDRSTRLEN),newClient); 
+
+        //wait for client to send data size                        
         close(newClient);                        
     }
 
