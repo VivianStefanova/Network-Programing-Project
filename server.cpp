@@ -15,10 +15,6 @@
 
 #define PORT "4950"
 
-
-
-
-//TO DO- enforce number of threads <= hardware concurrency for user input
 int main() {
 
     //char serverIP[INET_ADDRSTRLEN];
@@ -93,7 +89,22 @@ int main() {
 								&(((struct sockaddr_in*) &clientaddr)->sin_addr),
 								remoteIP, INET_ADDRSTRLEN),newClient); 
 
-        //wait for client to send data size                        
+        //wait for client to send data size  
+        uint32_t size, threads;
+
+        recv(newClient, &size, sizeof(size), MSG_WAITALL);
+        recv(newClient, &threads, sizeof(threads), MSG_WAITALL);
+
+        size = ntohl(size);
+        threads = ntohl(threads);
+
+        std::vector<int> data(size);
+        recv(newClient, data.data(), size * sizeof(int), MSG_WAITALL);
+
+        std::cout << "Received array of size " << size << " with " << threads << " threads\n";   
+        //printArray(data);
+        
+        
         close(newClient);                        
     }
 

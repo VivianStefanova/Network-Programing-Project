@@ -86,7 +86,7 @@ void merge(vector<int> &arr, int left, int mid, int right){
 }
 
 //Wrapper for merge sort implementation with number of thread from user input
-//maxThreads <= hardware_concurrency() and this is enforced on the server 
+//maxThreads <= hardware_concurrency() and this is enforced on the client app side
 void multiSort(vector<int> &arr, int maxThreads){
     if(maxThreads == 1){
         singleSort(arr);
