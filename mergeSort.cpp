@@ -141,23 +141,26 @@ int sum(int a, int b) {
 //     int n= 100000;
 //     vector<int> arr(n);
 //     vector<int> arr2(n);
+//     vector<int> arr3(n);
 //     setRandomValues(arr, arr2, n);
+//     for(int i=0; i<n; i++){
+//         arr3[i]= arr2[i];
+//     }
 
 //     // cout<<"Unsorted array: ";
 //     // printArray(arr);
+
+//     auto pStart4 = chrono::high_resolution_clock::now();
+//     multiSort(arr3, 4);
+//     auto pEnd4 = chrono::high_resolution_clock::now();
+//     chrono::duration<double> pDuration4 = pEnd4 - pStart4;
+//     cout << "Multi sort time (4 cores): " << pDuration4.count() << " seconds" <<  endl;
 
 //     auto pStart2 =  chrono::high_resolution_clock::now();
 //     multiSort(arr2, 2);
 //     auto pEnd2 =  chrono::high_resolution_clock::now();
 //     chrono::duration<double> pDuration2 = pEnd2 - pStart2;
 //     cout << "Multi sort time (2 cores): " << pDuration2.count() << " seconds" <<  endl;
-
-//     auto pStart4 = chrono::high_resolution_clock::now();
-//     multiSort(arr2, 4);
-//     auto pEnd4 = chrono::high_resolution_clock::now();
-//     chrono::duration<double> pDuration4 = pEnd4 - pStart4;
-//     cout << "Multi sort time (4 cores): " << pDuration4.count() << " seconds" <<  endl;
-
 
 //     auto start =  chrono::high_resolution_clock::now();
 //     singleSort(arr);
